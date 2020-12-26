@@ -1,0 +1,15 @@
+:root{
+    --biru-cuit: #007bff20;
+}
+
+.cur-pointer{
+    cursor: pointer;
+}
+
+.svg {
+    transition: background-color .2s;
+}
+
+.svg:hover {
+    background-color: var(--biru-cuit)
+}
