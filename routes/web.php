@@ -11,8 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('C_Index@show');
+// });
 
 Route::get('/tes','TestConnection@test');
+Route::get('/','C_Index@show')->name('index');
+Route::get('/cuit','C_Index@showTweets')->name('cuitan');
