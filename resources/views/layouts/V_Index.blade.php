@@ -60,7 +60,7 @@
 							</div>
 							<div class="d-flex flex-column text-left pl-3">
 								<div class="font-weight-bold">Muhammad Prasasta</div>
-								<div class="font-weight-light">@prasastaa</div>
+								<div class="font-weight-light"><a href="{{route('profile.view')}}">@prasastaa</a></div>
 							</div>
 						</div>
 					</div>
@@ -81,7 +81,7 @@
 			</div>
 		</div>
 
-		<div class="col-md">
+		<div class="col-md border-left">
 			Suggestion to Follow
 		</div>
 	</div>

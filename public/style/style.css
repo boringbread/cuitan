@@ -1,5 +1,11 @@
 :root{
     --biru-cuit: #007bff20;
+    --biru-aktip: rgba(29,161,242,1.00);
+}
+
+html {
+    overflow: -moz-scrollbars-vertical; 
+    overflow-y: scroll;
 }
 
 .cur-pointer{
@@ -13,3 +19,34 @@
 .svg:hover {
     background-color: var(--biru-cuit)
 }
+
+/*baru gan, monggo dirate 🙏*/
+.nav-info-h{
+    height: 4em;
+}
+.profile-nav-item{
+    padding: .6em !important;
+    color:rgb(91 112 128 / 1);
+}
+.profile-nav-active{
+  border-bottom: 3px solid var(--biru-aktip);
+}
+.profile-nav-item:hover{
+    background-color: rgba(29, 161, 242, 0.1);
+}
+.profile-nav-active, .profile-nav-item:hover{
+    color:var(--biru-aktip)
+}
+
+.profile-circle{
+    z-index: 999;
+    width:20%;
+    border-radius:50%;
+    border:5px solid #fff;
+    min-width: 100px;
+} 
+.profile-circle:after{
+    content:"";
+    padding-bottom:100%;
+    display:block;
+  }

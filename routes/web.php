@@ -18,3 +18,8 @@
 Route::get('/tes','TestConnection@test');
 Route::get('/','C_Index@show')->name('index');
 Route::get('/cuit','C_Index@showTweets')->name('cuitan');
+
+
+//Profile Routes
+// Route::get('/profile/{username}','ProfileController@viewProfile')->name("profile.view");
+Route::get('/profile/prasastaa','ProfileController@viewProfile')->name("profile.view");
