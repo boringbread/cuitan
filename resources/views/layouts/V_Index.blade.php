@@ -15,7 +15,7 @@
 	<div class="row">
 		<div class="col-3 border-right">
 			<div style="position: sticky; top: 0.25rem; height: 100vh;">
-				<nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse affix" >
+				<nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block sidebar collapse affix" >
 					<li class="navbar-brand">
 						<a class="nav-link active font-weight-bold" href="#">
 							CUITAN.

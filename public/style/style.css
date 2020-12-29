@@ -8,6 +8,10 @@ html {
     overflow-y: scroll;
 }
 
+.bg-blue-cuit-10 {
+    background-color: #007bff08 ;
+}
+
 .cur-pointer{
     cursor: pointer;
 }

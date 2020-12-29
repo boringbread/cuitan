@@ -27,11 +27,9 @@
 
 	<script type="text/javascript" defer>
 
-		function redirectCuit(event){
-			console.log(event);
-			if(event == 'dalam')
-				var url = `{{ route('cuitan') }}`
-				window.location.href = url ;
+		function redirectCuit(){
+			var url = `{{ route('cuitan') }}`
+			window.location.href = url ;
 				
 		}
 
