@@ -3,12 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\TestModel;
+use App\Tweets;
 
 class TestConnection extends Controller
 {
     public function test() {
-    	$users = TestModel::all();
+    	$users = Tweets::all();
     	echo $users;
     }
 }

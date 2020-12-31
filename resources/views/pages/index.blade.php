@@ -21,14 +21,14 @@
 
 @section('content')
 
-	@for ($i = 0; $i < 3; $i++)
-	@include('component.single-tweet')
-	@endfor
+	@foreach ($tweets as $tweet)
+		@include('component.single-tweet')
+	@endforeach
 
 	<script type="text/javascript" defer>
 
 		function redirectCuit(){
-			var url = `{{ route('cuitan') }}`
+			var url = `{{ route('cuitan', ['tweets' => $tweets]) }}`
 			window.location.href = url ;
 				
 		}
