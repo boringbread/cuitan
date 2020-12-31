@@ -4,11 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Tweets;
+use App\User;
 
 class TestConnection extends Controller
 {
     public function test() {
-    	$users = Tweets::all();
-    	echo $users;
+        $tweets = Tweets::all();
+        foreach($tweets as $tweet){
+            $user = User::where('_id',$tweet->id_user)->first();
+            $tweet->name = $user->disp_name;
+        }
+    	echo $tweets;
     }
 }
