@@ -16,4 +16,9 @@ class TestConnection extends Controller
         }
     	echo $tweets;
     }
+
+    public function users(){
+        $users = User::all();
+        return $users;
+    }
 }

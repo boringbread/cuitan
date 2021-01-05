@@ -94,9 +94,7 @@ return [
         'mongodb' => [
             'driver'   => 'mongodb',
             'dsn'=>'mongodb://m001-student:m001-mongodb-basics@cuitan-shard-00-00.ktdsk.mongodb.net:27017,cuitan-shard-00-01.ktdsk.mongodb.net:27017,cuitan-shard-00-02.ktdsk.mongodb.net:27017/Cuitan?authSource=admin&compressors=disabled&gssapiServiceName=mongodb&replicaSet=atlas-14829w-shard-0&ssl=true',
-            'database' => env('MONGO_DB_DATABASE'),
-            'username' => env('MONGO_DB_USERNAME'),
-            'password' => env('MONGO_DB_PASSWORD'),
+            'database' => 'cuitan',
             'options'  => []
         ],
 

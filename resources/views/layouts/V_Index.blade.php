@@ -59,8 +59,8 @@
 								<img src="https://pbs.twimg.com/profile_images/1019964377229766657/NCWeNHy__400x400.jpg" class="" width="50px" alt="" style="width: 60px; clip-path: circle();">
 							</div>
 							<div class="d-flex flex-column text-left pl-3">
-								<div class="font-weight-bold">Muhammad Prasasta</div>
-								<div class="font-weight-light"><a href="{{route('profile.view')}}">@prasastaa</a></div>
+								<div class="font-weight-bold">{{Auth::user()->disp_name}}</div>
+								<div class="font-weight-light"><a href="{{route('profile.view',Auth::user()->username)}}">{{"@".Auth::user()->username}}</a></div>
 							</div>
 						</div>
 					</div>

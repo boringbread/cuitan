@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Tweets;
+use App\User;
 
 class C_Index extends Controller
 {
@@ -13,6 +14,12 @@ class C_Index extends Controller
         // Your code Here
 
         $tweets = Tweets::get();
+
+        foreach($tweets as $tweet){
+            $user = User::where('_id',$tweet->id_user)->first();
+            $tweet->disp_name = $user->disp_name;
+            $tweet->username = $user->username;
+        }
 
     	return view('pages.index', ['tweets' => $tweets]);
     }

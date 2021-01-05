@@ -8,12 +8,15 @@
 	</div>
 
 	<div class="pt-4">
-		<div class="form-group">
-			<textarea class="form-control" placeholder="Hello, World!"></textarea>
-		</div>
-		<div class="text-right">
-			<button class="btn w-25 btn-primary ">Cuit Sekarang</button>
-		</div>
+		<form action="{{route('tweet.post')}}" method="POST">
+			@CSRF
+			<div class="form-group">
+				<textarea id="text" class="form-control" name="text" placeholder="Hello, World!"></textarea>
+			</div>
+			<div class="text-right">
+				<button class="btn w-25 btn-primary ">Cuit Sekarang</button>
+			</div>
+		</form>
 	</div>
 </div>
 
@@ -27,11 +30,11 @@
 
 	<script type="text/javascript" defer>
 
-		function redirectCuit(){
-			var url = `{{ route('cuitan', ['tweets' => $tweets]) }}`
-			window.location.href = url ;
+		// function redirectCuit(){
+		// 	var url = `{{ route('cuitan', ['tweets' => $tweets]) }}`
+		// 	window.location.href = url ;
 				
-		}
+		// }
 
 	</script>
 

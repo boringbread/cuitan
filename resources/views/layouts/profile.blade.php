@@ -20,15 +20,23 @@
             </div>
             
             <div class="border rounded p-2" style="font-size:1.1em">
+                @if($role=="owner")
                 <a href="">
                     <span><b>Edit Profile</b></span>
                 </a>
+                @elseif($role=="default")
+                @elseif($role=="visit")
+                <form action="{{route('profile.follow',$user->id)}}" method="POST">
+                    @CSRF
+                    <button><b>Follow</b></button>
+                </form>
+                @endif
             </div>
         </div>
         <div class="px-3">
             <div class="my-1" style="font-size:1.5em">
-                <p class="mb-0"><b>Muhammad Prasasta</b></p>
-                <small class="text-secondary">@prasastaa</small>
+                <p class="mb-0"><b>{{$user->disp_name}}</b></p>
+                <small class="text-secondary">{{"@".$user->username}}</small>
             </div>
             <div class="my-3" style="font-size:1.1em">
                 <p>
@@ -65,8 +73,8 @@
 </div>
 
 <!--tweets-->
-@for ($i = 0; $i < 3; $i++)
+@foreach($tweets as $tweet)
 	@include('component.single-tweet')
-@endfor
+@endforeach
 
 @endsection

@@ -15,16 +15,18 @@
                 </div>
             </div>
             <div class="col pl-3">
-                <div class=" d-flex flex-column align-items-left">
-                    <div class="font-weight-bold">Muhammad Prasasta</div>
-					<div class="font-weight-light">@prasastaa</div>
-                </div>
+                <a href="{{route('profile.view',$tweet->username)}}">
+                    <div class=" d-flex flex-column align-items-left">
+                        <div class="font-weight-bold">{{$tweet->disp_name}}</div>
+                        <div class="font-weight-light">{{"@".$tweet->username}}</div>
+                    </div>
+                </a>
             </div>
         </div>
         {{-- Isi Tweets --}}
         <div class="px-3">
             <h3 class="font-weight-normal pt-1">
-                Baru beres install hadoop, eh taunya udah lulus basdat.
+                {{$tweet->text}}
             </h3>
             <div class="d-flex flex-row justify-content-between border-top border-bottom p-3 mt-3">
                 <div class="d-flex flex-row">
