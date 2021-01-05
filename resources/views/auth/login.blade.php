@@ -1,73 +1,106 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
-                        @csrf
+    <div class="row text-center justify-content-center text-light" style="height: 100%">
 
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+        <div class="col-6 bg-primary py-4 justify-content-center">
+            <div class="row p-4 d-flex justify-content-center">
+                <div class="col-8 my-2 p-3 text-left">
+                    <p><i class="fa fa-search" style="font-size: 24px" ></i>  Ikuti yang kamu sukai</p>     
+                </div>
+                <div class="col-8 my-2 p-3 text-left">
+                    <p><i class="fas fa-user-friends" style="font-size: 24px"></i> Dengar apa yang sedang jadi perbincangan.</p>    
+                </div>
+                <div class="col-8 my-2 p-3 text-left">
+                    <p><i class="fa fa-comment-alt" style="font-size: 24px"></i>  Gabung ke perbincangan.</p>
+                </div>      
+            </div>
+        </div>
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+        <div class="col-6 bg-dark ">
+            <div class="row p-4 d-flex ">
+                <div class="col-12 ">
+                    <form >
+                        <div class="row ">
+                            <div class="col">
+                                <input type="text" class="form-control h-100" placeholder="First name">
                             </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                            <div class="col">
+                                <input type="password" class="form-control h-100" placeholder="Password">
                             </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                    <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
-                                </button>
-
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                @endif
+                            <div class="col">
+                                <button type="submit" class="btn btn-outline-primary rounded-pill mb-2">Log In</button>
                             </div>
                         </div>
                     </form>
                 </div>
             </div>
+
+            <div class="row p-4 d-flex justify-content-center">
+                <div class="col-8 my-2 text-left">
+                    <i class="fab fa-twitter" style="font-size: 48px"></i>
+                </div>
+                <div class="col-8 my-2 text-left">
+                    <h3>Lihat apa yang terjadi pada dunia sekarang.</h3>
+                </div>
+                <div class="col-8 my-2 text-left">
+                    <h6>Gabung cuitan hari ini.</h6>
+                </div>
+                <div class="col-8 my-2">
+                    <button type="button" class="btn btn-primary rounded-pill mb-2 w-100" data-toggle="modal" data-target="#exampleModalCenter">Daftar</button>
+                </div>
+                
+            </div>
+            
         </div>
     </div>
-</div>
+
+   <!-- Modal -->
+<div class="modal fade " id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered " role="document">
+      <div class="modal-content bg-dark text-white">
+        <div class="modal-header text-center">
+                <i class="fab fa-twitter modal-title" style="font-size: 24px"></i>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>          
+        </div>
+        <div class="modal-body">
+            <form >
+                <div class="row">
+                    <div class="col-12 my-2">
+                        <h3>Create Your Account</h3>                    
+                    </div>
+                    <div class="col-12 my-2">
+                        <input type="text" class="form-control h-100" placeholder="First name">
+                    </div>
+                    <div class="col-12 my-2">
+                        <input type="text" class="form-control h-100" placeholder="Last name">
+                    </div>
+                    <div class="col-12 my-2">
+                        <a href="">Use email instead!</a>
+                    </div>
+                    <div class="col-12 my-2">
+                        <h5>Date of birth</h5>
+                        <p>This will not shown publicity. Confirm your own age, even if this account is for
+                            a bussiness, a pet, or somethinf else.
+                        </p>          
+                        <input type="date" name="" id="">                 
+          
+                    </div>
+                </div>
+            </form>
+            
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary">Sign Up</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    @include('headfoot.footer')
+ 
+    
 @endsection
