@@ -30,30 +30,40 @@
 							</li>
 							<li class="nav-item">
 								<a class="nav-link btn btn-lg text-left mt-4" href="#">
-									Following
-								</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link btn btn-lg text-left mt-4" href="#">
-									Followers
-								</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link btn btn-lg text-left mt-4" href="#">
 									Search
 								</a>
 							</li>
-							<li class="nav-item">
-								<a class="nav-link btn btn-lg text-left mt-4" href="#">
-									Logout
-								</a>
-							</li>
-						</ul>
+							@if (Auth::check())
+								<li class="nav-item">
+									<a class="nav-link btn btn-lg text-left mt-4" href="{{ route('profile.following', Auth::user()->username) }}">
+										Following
+									</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link btn btn-lg text-left mt-4" href="{{ route('profile.follower', Auth::user()->username) }}">
+										Followers
+									</a>
+								</li>
+								<li class="nav-item">
+									<form action="{{ route('logout') }}" method="POST">
+										@csrf
+										<button class="nav-link btn btn-lg text-left mt-4">Logout</button>
+									</form>
+								</li>
+							@else
+								<li class="nav-item">
+									<a class="nav-link btn btn-lg text-left mt-4" href="login">
+										Login
+									</a>
+								</li>
+							@endif
+							</ul>
 					</div>
 				</nav>
 
+				@if (Auth::check())
 				<div class="w-100" style="position: absolute; bottom: 0;">
-					<div class="border text-center px-2 pt-4 pb-4 shadow" style="border-top-right-radius: 30px; border-top-left-radius: 30px" >
+					<div class="border text-center px-4 pt-4 pb-4 shadow" style="border-top-right-radius: 30px; border-top-left-radius: 30px" >
 						<div class="d-flex flex-row align-items-center">
 							<div class="rounded-circle" style="overflow: hidden;">
 								<img src="https://pbs.twimg.com/profile_images/1019964377229766657/NCWeNHy__400x400.jpg" class="" width="50px" alt="" style="width: 60px; clip-path: circle();">
@@ -65,6 +75,7 @@
 						</div>
 					</div>
 				</div>
+				@endif
 			</div>
 		</div>
 

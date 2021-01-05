@@ -24,12 +24,22 @@
                 <a href="">
                     <span><b>Edit Profile</b></span>
                 </a>
+                <form action="{{ route('profile.delete') }}" method="post">
+                    @csrf
+                    <input type="hidden" name="_method" value="DELETE">
+                    <button><b>Hapus Akun</b></button>
+                </form>
                 @elseif($role=="default")
                 @elseif($role=="visit")
-                <form action="{{route('profile.follow',$user->id)}}" method="POST">
-                    @CSRF
-                    <button><b>Follow</b></button>
-                </form>
+                {{-- Dah polo belom? --}}
+                    @if (in_array($user->id, Auth::user()->following))
+                        <button><b>Followed</b></button>
+                    @else
+                        <form action="{{route('profile.follow',$user->id)}}" method="POST">
+                            @CSRF
+                            <button><b>Follow</b></button>
+                        </form>
+                    @endif
                 @endif
             </div>
         </div>

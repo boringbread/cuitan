@@ -21,6 +21,15 @@
                         <div class="font-weight-light ml-1">{{"@".$tweet->username}}</div>
                         <div class="font-weight-light ml-1">&#x2022;</div>
                         <div class="font-weight-light ml-1">40 min</div>
+                        <div class="font-weight-light ml-1">
+                            @if (Auth::check() && Auth::user()->id == $tweet->id_user)
+                                <form action="{{ route('tweet.delete', $tweet->id) }}" method="POST">
+                                    @csrf
+                                    <input type="hidden" name="_method" value="PUT">
+                                    <button class="btn btn-sm btn-danger">Delete Tweet</button>
+                                </form>
+                            @endif
+                        </div>
                     </div>
                     <div class="pt-1 pr-3">
                         {{ $tweet->text }}

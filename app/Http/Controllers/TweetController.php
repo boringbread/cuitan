@@ -36,5 +36,12 @@ class TweetController extends Controller
 
         return redirect(route('index'));
     }
+
+    public function deleteTweet(Request $request, $id){
+        $tweet = Tweets::where('_id', $id)->first();
+        $tweet->delete();
+
+        return redirect(route('index'));
+    }
     
 }

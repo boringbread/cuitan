@@ -37,7 +37,8 @@ class ProfileController extends Controller
 
         return view('profile.view')->with($data);
     }
-//kasi unfollow
+    
+    //kasi unfollow
     public function followProfile($id){
         $user = Auth::user();
 
@@ -50,5 +51,42 @@ class ProfileController extends Controller
         //punya to Follow
         $toFollow->push('followers',$user->id, true);
         $toFollow->save();
+
+        return redirect( route('profile.view', $toFollow->username) );
+    }
+
+    public function deleteAccount(){
+        $user = Auth::user();
+        $user->delete();
+
+        return redirect(route('login'));
+    }
+
+    public function getFollowing($username){
+        $user = User::where('username', $username)->first();
+        $following = array();
+
+        if($user->following != NULL){
+            foreach ($user->following as $item) {
+                $follower = User::where('_id', $item)->first();
+                array_push($following, $follower);
+            }
+        }
+        
+        return $following;
+    }
+
+    public function getFollower($username){
+        $user = User::where('username', $username)->first();
+        $follower = array();
+
+        if($user->followers != NULL){
+            foreach ($user->followers as $item) {
+                $following = User::where('_id', $item)->first();
+                array_push($follower, $following);
+            }    
+        }
+
+        return $follower;
     }
 }

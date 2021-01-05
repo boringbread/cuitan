@@ -13,7 +13,7 @@ class C_Index extends Controller
         // Join 2 collection
         // Your code Here
 
-        $tweets = Tweets::get();
+        $tweets = Tweets::orderBy('created_at', 'desc')->get();
 
         foreach($tweets as $tweet){
             $user = User::where('_id',$tweet->id_user)->first();
