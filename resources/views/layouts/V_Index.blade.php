@@ -70,7 +70,7 @@
 							</div>
 							<div class="d-flex flex-column text-left pl-3">
 								<div class="font-weight-bold">{{Auth::user()->disp_name}}</div>
-								<div class="font-weight-light"><a href="{{route('profile.view',Auth::user()->username)}}">{{"@".Auth::user()->username}}</a></div>
+								<div class="font-weight-light"><a href="{{route('profile.view',Auth::user()->username)}}" class="text-dark">{{"@".Auth::user()->username}}</a></div>
 							</div>
 						</div>
 					</div>

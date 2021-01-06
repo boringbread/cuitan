@@ -2,9 +2,10 @@
 
 @section('content')
 
-    <div class="row text-center justify-content-center text-light" style="height: 100%">
+<div class="container-fluid ">
 
-        <div class="col-6 bg-primary py-4 justify-content-center">
+    <div class="row text-center text-light " style="height: 100vh">
+        <div class="col-6 bg-primary py-4">
             <div class="row p-4 d-flex justify-content-center">
                 <div class="col-8 my-2 p-3 text-left">
                     <p><i class="fa fa-search" style="font-size: 24px" ></i>  Ikuti yang kamu sukai</p>     
@@ -18,16 +19,17 @@
             </div>
         </div>
 
-        <div class="col-6 bg-dark ">
-            <div class="row p-4 d-flex ">
+        <div class="col-6 bg-dark">
+            <div class="row p-4 d-flex">
                 <div class="col-12 ">
-                    <form >
+                    <form action="{{ route('login') }}" method="POST">
+                        @csrf
                         <div class="row ">
                             <div class="col">
-                                <input type="text" class="form-control h-100" placeholder="First name">
+                                <input type="text" class="form-control h-100" id="email" name="email" placeholder="First name">
                             </div>
                             <div class="col">
-                                <input type="password" class="form-control h-100" placeholder="Password">
+                                <input type="password" class="form-control h-100" id="password" name="password" placeholder="Password">
                             </div>
                             <div class="col">
                                 <button type="submit" class="btn btn-outline-primary rounded-pill mb-2">Log In</button>
@@ -55,6 +57,7 @@
             
         </div>
     </div>
+</div>
 
    <!-- Modal -->
 <div class="modal fade " id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">

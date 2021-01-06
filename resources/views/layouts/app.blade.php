@@ -26,10 +26,10 @@
     <script src={{url('/js/bootstrap.bundle.min.js')}}></script>
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 </head>
-<body style="height:100vh">
+<body>
     <div id="app">
         
-        <main class="py-2">
+        <main class="">
             @yield('content')
         </main>
     </div>
