@@ -28,14 +28,15 @@
 		@include('component.single-tweet')
 	@endforeach
 
+	@if(Auth::check())
+	@include('modal.modal-reply')
+	@endif
+
 	<script type="text/javascript" defer>
-
-		// function redirectCuit(){
-		// 	var url = `{{ route('cuitan', ['tweets' => $tweets]) }}`
-		// 	window.location.href = url ;
-				
-		// }
-
+		$rModal = $("#replyModal");
+		$(".tweetobj").click(function(){
+			document.getElementById("replyID").value = $(this).attr('id');
+		})
 	</script>
 
 @endsection

@@ -35,7 +35,7 @@
 											Search
 										</button>
 									</h2>
-									<div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+									<div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
 										<div>
 											<form action="{{route('profile.search')}}" method="POST">
 												@csrf

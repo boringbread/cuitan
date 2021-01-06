@@ -33,6 +33,7 @@ Route::get('/profile/{username}/follower/', 'ProfileController@getFollower')->na
 Route::post('/tweet/post','TweetController@postTweet')->name('tweet.post');
 Route::get('/status/{tweet_id}','TweetController@viewTweet')->name("tweet.view");
 Route::put('/tweet/delete/{tweet_id}', 'TweetController@deleteTweet')->name('tweet.delete');
+Route::post('/tweet/reply','TweetController@replyTweet')->name('tweet.reply');
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
