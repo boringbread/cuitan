@@ -29,9 +29,22 @@
 								</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link btn btn-lg text-left mt-4 svg" href="#">
-									Search
-								</a>
+								<div class="accordion mt-4 svg" id="accordionExample">
+									<h2 class="mb-0" id="headingOne">
+										<button class="btn btn-lg text-left text-decoration-none" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+											Search
+										</button>
+									</h2>
+									<div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+										<div>
+											<form action="{{route('profile.search')}}" method="POST">
+												@csrf
+												<input type="text" class="form-control mt-2" name="search" id="search">
+												<button class="mt-2 btn btn-danger" type="submit">Cari</button>
+											</form>
+										</div>
+									</div>
+								</div>
 							</li>
 							@if (Auth::check())
 								<li class="nav-item">
@@ -63,7 +76,7 @@
 
 				@if (Auth::check())
 				<div class="w-100" style="position: absolute; bottom: 0;">
-					<div class="border text-center px-4 pt-4 pb-4 shadow" style="border-top-right-radius: 30px; border-top-left-radius: 30px; background-color: var(--biru-cuit)" >
+					<div class="border text-center px-4 pt-4 pb-4 shadow svg" style="border-top-right-radius: 30px; border-top-left-radius: 30px;" >
 						<div class="d-flex flex-row align-items-center">
 							<div class="rounded-circle" style="overflow: hidden;">
 								<img src="https://pbs.twimg.com/profile_images/1019964377229766657/NCWeNHy__400x400.jpg" class="" width="50px" alt="" style="width: 60px; clip-path: circle();">
