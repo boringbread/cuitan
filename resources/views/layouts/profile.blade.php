@@ -19,7 +19,7 @@
                 <img style="position:absolute;bottom:0%;left:1em;" src="https://pbs.twimg.com/profile_images/1019964377229766657/NCWeNHy__400x400.jpg" class="profile-circle">
             </div>
             
-            <div class="border rounded p-2" style="font-size:1.1em">
+            <div class="rounded p-2" style="font-size:1.1em">
                 @if($role=="owner")
                 <a href="">
                     <span><b>Edit Profile</b></span>
@@ -32,12 +32,12 @@
                 @elseif($role=="default")
                 @elseif($role=="visit")
                 {{-- Dah polo belom? --}}
-                    @if (in_array($user->id, Auth::user()->following))
-                        <button><b>Followed</b></button>
+                    @if (Auth::user()->following!=NULL && in_array($user->id, Auth::user()->following))
+                        <button class="btn btn-primary"><b>Followed</b></button>
                     @else
                         <form action="{{route('profile.follow',$user->id)}}" method="POST">
                             @CSRF
-                            <button><b>Follow</b></button>
+                            <button class="btn btn-outline-primary"><b>Follow</b></button>
                         </form>
                     @endif
                 @endif

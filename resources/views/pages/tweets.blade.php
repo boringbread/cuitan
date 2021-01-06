@@ -39,6 +39,7 @@
             <h3 class="font-weight-normal pt-1">
                 {{$tweet->text}}
             </h3>
+            <div class="mt-3 text-muted">{{ $tweet->created_at->format('h:i ') }} &#183; {{ $tweet->created_at->format('M d, Y') }} &#183; Cuitan Anak IF </div>
             <div class="d-flex flex-row justify-content-between border-top border-bottom p-3 mt-3">
                 <div class="d-flex flex-row">
                     <div><strong>100k</strong> Retweets</div>

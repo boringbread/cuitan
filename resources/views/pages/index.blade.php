@@ -11,7 +11,7 @@
 		<form action="{{route('tweet.post')}}" method="POST">
 			@CSRF
 			<div class="form-group">
-				<textarea id="text" class="form-control" name="text" placeholder="Hello, World!"></textarea>
+				<textarea id="text" class="form-control" required oninvalid="this.setCustomValidity('Isi ini dulu yuk!')" oninput="this.setCustomValidity('')" name='text' placeholder='Hello, World!'></textarea>
 			</div>
 			<div class="text-right">
 				<button class="btn w-25 btn-primary ">Cuit Sekarang</button>
