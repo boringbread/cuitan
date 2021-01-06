@@ -2,10 +2,15 @@
 
 @section('content')
 
+    
     <div class="d-flex p-3">
         <a href={{route('index')}}><div class="font-weight-bold mr-3">&#8592;</div></a>
         <h5 class="font-weight-bold">CUITAN</h5>
     </div>
+
+    @if($tweet->reply_anc)
+        @include('component.single-tweet',['tweet' => $tweet->anc])
+    @endif
 
     <div class="rounded border mt-2">
         <div class="row py-3 px-3 align-items-center">
@@ -57,6 +62,10 @@
     {{-- ini Dummy aja --}}
     <?php $i = 0 ?>
 
-    @include('component.single-tweet')
+    @if($tweet->reply_prede)
+    @foreach($tweet->prede as $prede)
+        @include('component.single-tweet',['tweet' => $prede])
+    @endforeach
+    @endif
 
 @endsection

@@ -87,4 +87,8 @@
 	@include('component.single-tweet')
 @endforeach
 
+@if(Auth::check())
+	@include('modal.modal-reply')
+@endif
+
 @endsection
