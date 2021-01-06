@@ -56,9 +56,9 @@
             </div>
             <div class="my-3" style="font-size:1.1em;color:#555">
                 <span>
-                    <b>1142</b> Following<!-- jadiin  link -->
+                    <b>{{ $user->following_count ? $user->following_count : 0  }}</b> Following<!-- jadiin  link -->
                     &emsp;
-                    <b>1.5k</b> Followers<!-- jadiin  link -->
+                    <b>{{ $user->follower_count ? $user->follower_count : 0  }}</b> Followers<!-- jadiin  link -->
                 </span>
             </div>
         </div>

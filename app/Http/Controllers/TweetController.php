@@ -40,6 +40,7 @@ class TweetController extends Controller
             }
 
             $tweet->prede = $predeArray;
+            $tweet->count_prede = count($tweet->prede);
         }
         
         /*getting user data*/
@@ -66,10 +67,11 @@ class TweetController extends Controller
     public function replyTweet(Request $request){
         //add middleware
         $id = $request->input('reply_id');
-        $tweet = Tweets::where('_id',$id)->first();
+        $tweet = Tweets::where('_id', $id)->first();
         $newTweet = new Tweets();
         $user = Auth::user();
 
+        // dd($tweet);
         $newTweet->text = $request->input('reply_data');
         $newTweet->id_user = $user->id;
         $newTweet->date_added = date("d/m/Y h:i:s");

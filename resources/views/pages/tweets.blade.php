@@ -12,7 +12,7 @@
         @include('component.single-tweet',['tweet' => $tweet->anc])
     @endif
 
-    <div class="rounded border mt-2">
+    <div class="rounded border mt-2 tweetobj" id="{{$tweet->id}}">
         <div class="row py-3 px-3 align-items-center">
             <div class="col-1">
                 <div class="rounded-circle text-center">
@@ -47,8 +47,9 @@
             <div class="mt-3 text-muted">{{ $tweet->created_at->format('h:i ') }} &#183; {{ $tweet->created_at->format('M d, Y') }} &#183; Cuitan Anak IF </div>
             <div class="d-flex flex-row justify-content-between border-top border-bottom p-3 mt-3">
                 <div class="d-flex flex-row">
-                    <div><strong>100k</strong> Retweets</div>
-                    <div class="pl-4"><strong>2k</strong> Likes</div>
+                    <div><strong>{{ $tweet->count_prede ? $tweet->count_prede : 0 }}</strong> Replies</div>
+                    {{-- <div class="pl-4"><strong>{{ $tweet->count_prede }}</strong> Retweet</div> --}}
+                    {{-- <div class="pl-4"><strong>2k</strong> Likes</div> --}}
                 </div>
             </div>
 
@@ -67,5 +68,16 @@
         @include('component.single-tweet',['tweet' => $prede])
     @endforeach
     @endif
+
+    @if(Auth::check())
+	@include('modal.modal-reply')
+	@endif
+
+	<script type="text/javascript" defer>
+		$rModal = $("#replyModal");
+		$(".tweetobj").click(function(){
+			document.getElementById("replyID").value = $(this).attr('id');
+		})
+	</script>
 
 @endsection
