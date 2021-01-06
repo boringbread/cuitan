@@ -89,4 +89,13 @@ class ProfileController extends Controller
 
         return $follower;
     }
+
+    public function searchProfile(Request $request){
+        $search = $request->input('search');
+        $user = User::where('username',$search)->first();
+        
+        if(!$user){return redirect(route('index'));}
+
+        return redirect(route('profile.view', $user->username));
+    }
 }
