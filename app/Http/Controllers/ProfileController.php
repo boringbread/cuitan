@@ -23,10 +23,12 @@ class ProfileController extends Controller
 
         $role = "default";
 
-        if(Auth::user()->id == $user->id){
-            $role = "owner";
-        }else{
-            $role = "visit";
+        if(Auth::check()){
+            if(Auth::user()->id == $user->id){
+                $role = "owner";
+            }else{
+                $role = "visit";
+            }
         }
 
         $data = [
@@ -58,6 +60,12 @@ class ProfileController extends Controller
     public function deleteAccount(){
         $user = Auth::user();
         $user->delete();
+
+        $tweets = Tweets::where("id_user",$user->id)->get();
+
+        foreach($tweets as $tweet){
+            $tweet->delete();
+        }
 
         return redirect(route('login'));
     }
