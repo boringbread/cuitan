@@ -8,6 +8,12 @@ html {
     overflow-y: scroll;
 }
 
+.no-border {
+    outline: none;
+    border: 0 !important;
+    box-shadow: none !important; /* You may want to include this as bootstrap applies these styles too */
+}
+
 .bg-blue-cuit-10 {
     background-color: #007bff08 ;
 }

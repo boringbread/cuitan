@@ -15,20 +15,25 @@
             
         </div>
         <div class="d-flex justify-content-between py-3" style="position:relative">
-            <div style="profile-circle">
-                <img style="position:absolute;bottom:0%;left:1em;" src="https://pbs.twimg.com/profile_images/1019964377229766657/NCWeNHy__400x400.jpg" class="profile-circle">
+            <div class="">
+                <img style="position:absolute;bottom:0%;left:1em;background:#fff" src="{{asset('img/profile/'.($user->pphoto!=NULL? $user->pphoto:"noimg.png"))}}" class="profile-circle">
             </div>
             
             <div class="rounded p-2" style="font-size:1.1em">
                 @if($role=="owner")
-                <a href="">
-                    <span><b>Edit Profile</b></span>
-                </a>
-                <form action="{{ route('profile.delete') }}" method="post">
-                    @csrf
-                    <input type="hidden" name="_method" value="DELETE">
-                    <button><b>Hapus Akun</b></button>
-                </form>
+                <div class="btn-group">
+                    <a class="btn mr-2 rounded border" data-toggle="dropdown">
+                      <img src="{{asset('img/threedot.svg')}}" width="16px">
+                    </a>
+                    <ul class="dropdown-menu pb-0">
+                        <li >
+                            <button class="btn w-100" data-toggle="modal" data-target="#editProfile"><b>Edit Profile</b></button>
+                        </li>
+                        <li>
+                            <button class="btn w-100 text-danger" data-toggle="modal" data-target="#deleteProfile"><b>Hapus Akun</b></button>
+                        </li>
+                    </ul>
+                </div>
                 @elseif($role=="default")
                 @elseif($role=="visit")
                 {{-- Dah polo belom? --}}
@@ -44,17 +49,16 @@
             </div>
         </div>
         <div class="px-3">
-            <div class="my-1" style="font-size:1.5em">
+            <div class="my-1" style="font-size:1.25em">
                 <p class="mb-0"><b>{{$user->disp_name}}</b></p>
                 <small class="text-secondary">{{"@".$user->username}}</small>
             </div>
-            <div class="my-3" style="font-size:1.1em">
+            <div class="my-3" style="font-size:1em">
                 <p>
-                    Karna hidup bukanlah perkara durasi, tapi kontribusi.<br>
-                    [WA: Agus 0878 7889 8985]
+                    {{$user->bio?$user->bio:""}}
                 </p>
             </div>
-            <div class="my-3" style="font-size:1.1em;color:#555">
+            <div class="my-3" style="font-size:0.8em;color:#555">
                 <span>
                     <a href="{{ route('profile.following', $user->username) }}" style="font-size:1.1em;color:#555">
                         <b>{{ $user->following_count ? $user->following_count : 0  }}</b> Following<!-- jadiin  link -->
@@ -72,7 +76,7 @@
 <!--nav-->
 <div class="border-bottom">
     <div class="container text-center">
-        <div class="row" style="font-size:1.25em">
+        <div class="row" style="font-size:1em">
             <div class="col px-0">
                 <a class="nav-link profile-nav-item profile-nav-active" href="#"><b>Tweets</b></a>
             </div>
@@ -93,6 +97,8 @@
 
 @if(Auth::check())
 	@include('modal.modal-reply')
+	@include('modal.modal-profile-edit')
+	@include('modal.modal-profile-delete')
 @endif
 
 @endsection

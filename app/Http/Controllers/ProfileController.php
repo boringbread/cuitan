@@ -123,6 +123,16 @@ class ProfileController extends Controller
         // $toUnfollow->save();
     }
 
+    public function updateProfile(Request $request){
+        $user = Auth::user();
+
+        $user->disp_name = $request->input('disp_name');
+        $user->bio = $request->input('bio');
+        $user->save();
+
+        return redirect(route('profile.view',$user->username));
+    }
+
     public function deleteAccount(){
         $user = Auth::user();
         $user->delete();

@@ -10,7 +10,7 @@
 	{{-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script> --}}
 	{{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script> --}}
 </head>
-<body class="container-fluid">
+<body class="container-fluid pr-0">
 	<!-- Side Menu -->
 	<div class="row">
 		<div class="col-3 border-right">
@@ -38,6 +38,7 @@
 									<div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
 										<div>
 											<form action="{{route('profile.search')}}" method="POST">
+												<input type="hidden" name="_method" value="PUT">
 												@csrf
 												<input type="text" class="form-control mt-2" name="search" id="search">
 												<button class="mt-2 btn btn-danger" type="submit">Cari</button>
@@ -79,7 +80,7 @@
 					<div class="border text-center px-4 pt-4 pb-4 shadow svg" style="border-top-right-radius: 30px; border-top-left-radius: 30px;" >
 						<div class="d-flex flex-row align-items-center">
 							<div class="rounded-circle" style="overflow: hidden;">
-								<img src="https://pbs.twimg.com/profile_images/1019964377229766657/NCWeNHy__400x400.jpg" class="" width="50px" alt="" style="width: 60px; clip-path: circle();">
+								<img src="{{asset('img/profile/'.(Auth::user()->pphoto!=NULL? Auth::user()->pphoto:"noimg.png"))}}" class="" width="50px" alt="" style="width: 60px; clip-path: circle();">
 							</div>
 							<div class="d-flex flex-column text-left pl-3">
 								<div class="font-weight-bold">{{Auth::user()->disp_name}}</div>

@@ -24,6 +24,7 @@ Route::get('/cuit','C_Index@showTweets')->name('cuitan');
 //Profile Routes
 Route::delete('/profile/delete/', 'ProfileController@deleteAccount')->name('profile.delete');
 Route::post ('/profile/search','ProfileController@searchProfile')->name("profile.search");
+Route::put('/profile/edit','ProfileController@updateProfile')->name("profile.update");
 Route::post('/profile/{id}','ProfileController@followProfile')->name("profile.follow");
 Route::get('/profile/{username}','ProfileController@viewProfile')->name("profile.view");
 Route::get('/profile/{username}/following/', 'ProfileController@getFollowing')->name('profile.following');

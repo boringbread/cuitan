@@ -28,7 +28,7 @@
         </div>
         <div id="teamTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
             <div class="card-body">
-                2017730020 - Bocah paling kaya di tim
+                2017730020 - Masih labil
             </div>
         </div>
     </div>
