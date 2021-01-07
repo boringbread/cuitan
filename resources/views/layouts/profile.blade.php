@@ -15,8 +15,8 @@
             
         </div>
         <div class="d-flex justify-content-between py-3" style="position:relative">
-            <div class="">
-                <img style="position:absolute;bottom:0%;left:1em;background:#fff" src="{{asset('img/profile/'.($user->pphoto!=NULL? $user->pphoto:"noimg.png"))}}" class="profile-circle">
+            <div style="overflow:hidden">
+                <img style="height:111px;width:111px;position:absolute;bottom:0%;left:1em;background:#fff;object-fit:cover" src="{{asset('img/profile/'.($user->pphoto!=NULL? $user->pphoto:"noimg.png"))}}" class="profile-circle">
             </div>
             
             <div class="rounded p-2" style="font-size:1.1em">
@@ -98,7 +98,30 @@
 @if(Auth::check())
 	@include('modal.modal-reply')
 	@include('modal.modal-profile-edit')
-	@include('modal.modal-profile-delete')
+    @include('modal.modal-profile-delete')
+@endif
+
+@endsection
+
+@section('scripts')
+
+@if(Auth::check())
+    <script>
+        function fasterPreview( uploader ) {
+            if ( uploader.files && uploader.files[0] ){
+                var img = $('#profile-viewer');
+                img.attr('src', window.URL.createObjectURL(uploader.files[0]));
+            }
+        }
+
+        $("#p-input-div").click(function(){
+            $("#pphoto").click();
+        });
+
+        $("#pphoto").change(function(){
+            fasterPreview( this );
+        });
+    </script>
 @endif
 
 @endsection

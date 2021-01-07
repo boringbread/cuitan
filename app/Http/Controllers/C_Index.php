@@ -19,6 +19,7 @@ class C_Index extends Controller
             $user = User::where('_id',$tweet->id_user)->first();
             $tweet->disp_name = $user->disp_name;
             $tweet->username = $user->username;
+            $tweet->pphoto = $user->pphoto;
         }
 
     	return view('pages.index', ['tweets' => $tweets]);

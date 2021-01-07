@@ -6,7 +6,7 @@
                 @if ($tweet->reply_anc ||$tweet->is_retweeted == 1 || $tweet->is_liked == 1)
                     <small class="text-white">.</small>
                 @endif
-                <img src="{{asset('img/profile/'.($tweet->pphoto!=NULL? $tweet->pphoto:"noimg.png"))}}" class="" alt="" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover; object-position: center right;">
+                <img src="{{asset('img/profile/'.($tweet->pphoto!=NULL? $tweet->pphoto:"noimg.png"))}}" class="" alt="" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover; object-position: center;">
             </div>
         </div>
         <div class="col pl-4 pb-3">

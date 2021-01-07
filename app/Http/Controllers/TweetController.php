@@ -37,6 +37,7 @@ class TweetController extends Controller
                 //append data objek user pemilik pada objek tweet
                 $ancTweet->disp_name = $user_anc->disp_name;
                 $ancTweet->username = $user_anc->username;
+                $ancTweet->pphoto = $user_anc->pphoto;
             }
             $tweet->anc = $ancTweet;
         }
@@ -51,6 +52,7 @@ class TweetController extends Controller
                     $user_prede = User::where('_id',$tweet->id_user)->first();
                     $predeTweets->disp_name = $user_prede->disp_name;
                     $predeTweets->username = $user_prede->username;
+                    $predeTweets->pphoto = $user_prede->pphoto;
                     //masukan objek ke array baru
                     array_push($predeArray, $predeTweets);
                 }
@@ -64,6 +66,7 @@ class TweetController extends Controller
         $user = User::where('_id',$tweet->id_user)->first();
         $tweet->disp_name = $user->disp_name;
         $tweet->username = $user->username;
+        $tweet->pphoto = $user->pphoto;
 
         //kembalikan tampilan pages.tweet dan render tampilan dengan data $tweet
         return view('pages.tweets')->with('tweet',$tweet);

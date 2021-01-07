@@ -128,6 +128,13 @@ class ProfileController extends Controller
 
         $user->disp_name = $request->input('disp_name');
         $user->bio = $request->input('bio');
+        if($request->hasfile('photo')){
+            $name=$user->id."_".time().rand(1,10).'.jpg';
+            $file = $request->file('photo');
+            $file->move(base_path('public/img/profile'), $name);
+            
+            $user->pphoto = $name;
+        }
         $user->save();
 
         return redirect(route('profile.view',$user->username));

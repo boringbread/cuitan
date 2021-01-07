@@ -16,7 +16,7 @@
         <div class="row py-3 px-3 align-items-center">
             <div class="col-1">
                 <div class="rounded-circle text-center">
-                    <img src="https://pbs.twimg.com/profile_images/1019964377229766657/NCWeNHy__400x400.jpg" class="" alt="" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover; object-position: center right;">
+                    <img src="{{asset('img/profile/'.($tweet->pphoto!=NULL? $tweet->pphoto:"noimg.png"))}}" class="" alt="" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover; object-position: center;">
                 </div>
             </div>
             <div class="col pl-3">
