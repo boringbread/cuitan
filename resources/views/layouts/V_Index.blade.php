@@ -106,7 +106,7 @@
 		</div>
 
 		<div class="col-md border-left">
-			Suggestion to Follow
+			@include('component.right-bar')
 		</div>
 	</div>
 </body>

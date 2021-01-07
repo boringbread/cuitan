@@ -20,7 +20,7 @@
                         <div class="form-group row text-left d-flex justify-content-center">
 
                             <div class="col-8 border border-primary rounded ">
-                                <label for="nama" style="margin: 0">Nama</label>
+                                <label for="nama" style="margin: 0">Username</label>
                                 <input id="username"style="border: 0;outline: none ;box-shadow: none" type="text" class="mb-1 text-white form-control @error('name') is-invalid @enderror bg-dark" name="username" value="{{ old('name') }}" required autocomplete="name" autofocus>
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -33,7 +33,7 @@
                         <div class="form-group row text-left d-flex justify-content-center">
 
                             <div class="col-8 border border-primary rounded">
-                                <label for="nama" style="margin: 0">Username</label>
+                                <label for="nama" style="margin: 0">Display Name</label>
                                 <input id="disp_name"type="text" style="border: 0;outline: none ;box-shadow: none" class="mb-1 text-white bg-dark form-control @error('name') is-invalid @enderror" name="disp_name" value="{{ old('name') }}" required autocomplete="name" autofocus>
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
