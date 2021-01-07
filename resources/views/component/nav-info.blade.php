@@ -1,7 +1,9 @@
 <div class="d-flex align-items-center nav-info-h">
-    <a href={{route('index')}}><div class="font-weight-bold mr-3 icon-size">&#8592;</div></a>
+    <h3>
+        <a href={{url()->previous()}}><div class="font-weight-bold mr-3 icon-size">&#8592;</div></a>
+    </h3>
     <div>
-        <h5 class="font-weight-bold mb-0">{{--$user->name--}}{{ $user->disp_name }}</h5>
-        <p class="mb-0">69 tweets</p>
+        <h5 class="font-weight-bold mb-0">{{ $user->disp_name }}</h5>
+        <p class="mb-0">{{ $user->tweet_count }} tweets</p>
     </div>
 </div>

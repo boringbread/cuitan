@@ -65,7 +65,7 @@
 								</li>
 							@else
 								<li class="nav-item">
-									<a class="nav-link btn btn-lg text-left mt-4" href="login">
+									<a class="nav-link btn btn-lg text-left mt-4" href="{{route('login')}}">
 										Login
 									</a>
 								</li>

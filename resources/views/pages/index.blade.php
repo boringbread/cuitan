@@ -7,6 +7,7 @@
 		<h5>Cuitan Anak IF</h5>
 	</div>
 
+	@if(Auth::check())
 	<div class="pt-4">
 		<form action="{{route('tweet.post')}}" method="POST">
 			@CSRF
@@ -18,15 +19,22 @@
 			</div>
 		</form>
 	</div>
+	@endif
 </div>
 
 @endsection
 
 @section('content')
 
-	@foreach ($tweets as $tweet)
+	<div class="mb-3">
+		@foreach ($tweets as $tweet)
 		@include('component.single-tweet')
-	@endforeach
+		@endforeach
+	</div>
+
+	<div class="text-center mb-3">
+		<small class="text-center text-muted fs-6">Kamu sudah membaca semua cuitan anak IF :)</small>
+	</div>
 
 	@if(Auth::check())
 	@include('modal.modal-reply')

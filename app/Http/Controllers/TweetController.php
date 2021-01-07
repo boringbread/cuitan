@@ -141,5 +141,7 @@ class TweetController extends Controller
         //arahkan user ke halaman index
         return redirect(route('index'));
     }
+
+    
     
 }

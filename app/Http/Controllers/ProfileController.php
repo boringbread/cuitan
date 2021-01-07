@@ -19,8 +19,14 @@ class ProfileController extends Controller
         //cari user berdasarkan username
         $user = User::where('username',$username)->first();
 
+        
+        if(!$user){return redirect(route('index'));}
+        
+        $tweets = Tweets::where('id_user',$user->id)->orderBy('created_at', 'desc')->get();
+
         if($user->followers)$user->follower_count = count($user->followers);
         if($user->following)$user->following_count = count($user->following);
+        $user->tweet_count = count($tweets);
 
         //jika user tidak ditemukan, arahkan kembali ke halaman index
         if(!$user){return redirect(route('index'));}
@@ -137,11 +143,13 @@ class ProfileController extends Controller
         if($user->following != NULL){
             foreach ($user->following as $item) {
                 $follower = User::where('_id', $item)->first();
+                $follower->count_following = $this->countFollowing($follower->username);
+                $follower->count_follower = $this->countFollower($follower->username);
                 array_push($following, $follower);
             }
         }
         
-        return $following;
+        return view('pages.follow', ['follow' => $following, 'username' => $username]);
     }
 
     public function getFollower($username){
@@ -151,11 +159,13 @@ class ProfileController extends Controller
         if($user->followers != NULL){
             foreach ($user->followers as $item) {
                 $following = User::where('_id', $item)->first();
+                $following->count_following = $this->countFollowing($following->username);
+                $following->count_follower = $this->countFollower($following->username);
                 array_push($follower, $following);
             }    
         }
 
-        return $follower;
+        return view('pages.follow', ['follow' => $follower, 'username' => $username]);
     }
 
     public function searchProfile(Request $request){
@@ -167,7 +177,16 @@ class ProfileController extends Controller
         return redirect(route('profile.view', $user->username));
     }
 
-    // public function countFollowing(){
-    //     return count()
-    // }
+    private function countFollowing($username){
+        $user = User::where('username', $username)->first();
+        if($user->following)return count($user->following);
+        return 0;
+    }
+
+    private function countFollower($username){
+        $user = User::where('username', $username)->first();
+        if($user->followers)return count($user->followers);
+        return 0;
+    }
+    
 }

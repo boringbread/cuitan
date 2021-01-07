@@ -56,9 +56,13 @@
             </div>
             <div class="my-3" style="font-size:1.1em;color:#555">
                 <span>
-                    <b>{{ $user->following_count ? $user->following_count : 0  }}</b> Following<!-- jadiin  link -->
-                    &emsp;
-                    <b>{{ $user->follower_count ? $user->follower_count : 0  }}</b> Followers<!-- jadiin  link -->
+                    <a href="{{ route('profile.following', $user->username) }}" style="font-size:1.1em;color:#555">
+                        <b>{{ $user->following_count ? $user->following_count : 0  }}</b> Following<!-- jadiin  link -->
+                    </a>
+                        &emsp;
+                    <a href="{{ route('profile.follower', $user->username) }}" style="font-size:1.1em;color:#555">
+                        <b>{{ $user->follower_count ? $user->follower_count : 0  }}</b> Followers<!-- jadiin  link -->
+                    </a>
                 </span>
             </div>
         </div>
