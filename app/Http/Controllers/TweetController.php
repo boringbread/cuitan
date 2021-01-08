@@ -38,6 +38,9 @@ class TweetController extends Controller
                 $ancTweet->disp_name = $user_anc->disp_name;
                 $ancTweet->username = $user_anc->username;
                 $ancTweet->pphoto = $user_anc->pphoto;
+                $tweet->anc_exist = TRUE;
+            } else {
+                $tweet->anc_exist = FALSE; 
             }
             $tweet->anc = $ancTweet;
         }
@@ -50,13 +53,20 @@ class TweetController extends Controller
                 $predeTweets = Tweets::where('_id',$prede)->first();
                 if($predeTweets){
                     $user_prede = User::where('_id',$predeTweets->id_user)->first();
-                    // dd($predeTweets);
-                    $predeTweets->disp_name = $user_prede->disp_name;
-                    $predeTweets->username = $user_prede->username;
-                    $predeTweets->pphoto = $user_prede->pphoto;
-                    //masukan objek ke array baru
-                    array_push($predeArray, $predeTweets);
+                    $predeTweets->prede_exist = TRUE;
+                    if($user_prede){
+                        $predeTweets->disp_name = $user_prede->disp_name;
+                        $predeTweets->username = $user_prede->username;
+                        $predeTweets->pphoto = $user_prede->pphoto;
+                    } else {
+                        $predeTweets->disp_name = "no user";
+                    }
+                } else {
+                    $predeTweets = new Tweets;
+                    $predeTweets->prede_exist = FALSE;
                 }
+                //masukan objek ke array baru
+                array_push($predeArray, $predeTweets);
             }
             //append array pada objek tweet
             $tweet->prede = $predeArray;

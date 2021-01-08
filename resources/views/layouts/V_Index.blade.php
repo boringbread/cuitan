@@ -15,7 +15,7 @@
 	<div class="row">
 		<div class="col-3 border-right">
 			<div style="position: sticky; top: 0.25rem; height: 100vh;">
-				<nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block sidebar collapse affix" >
+				<nav id="sidebarMenu" class="d-md-block sidebar collapse affix" >
 					<li class="navbar-brand">
 						<a class="nav-link active font-weight-bold" href="#">
 							CUITAN.
@@ -29,19 +29,21 @@
 								</a>
 							</li>
 							<li class="nav-item">
-								<div class="accordion mt-4 svg" id="accordionExample">
+								<div class="accordion mt-4 svg rounded" id="accordionExample">
 									<h2 class="mb-0" id="headingOne">
-										<button class="btn btn-lg text-left text-decoration-none" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+										<button class="btn btn-block btn-lg text-left text-decoration-none" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
 											Search
 										</button>
 									</h2>
 									<div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
-										<div>
-											<form action="{{route('profile.search')}}" method="POST">
-												<input type="hidden" name="_method" value="PUT">
-												@csrf
-												<input type="text" class="form-control mt-2" name="search" id="search">
-												<button class="mt-2 btn btn-danger" type="submit">Cari</button>
+										<div class="pb-1">
+											<form action="{{route('profile.search')}}" method="POST" >
+												<div class="d-flex justify-content-around">
+													<input type="hidden" name="_method" value="PUT">
+													@csrf
+													<input type="text" class="form-control mt-2 w-75" name="search" id="search" required>
+													<button class="mt-2 btn btn-danger" type="submit">Cari</button>
+												</div>
 											</form>
 										</div>
 									</div>
@@ -66,7 +68,7 @@
 								</li>
 							@else
 								<li class="nav-item">
-									<a class="nav-link btn btn-lg text-left mt-4" href="{{route('login')}}">
+									<a class="nav-link svg rounded btn btn-lg text-left mt-4" href="{{route('login')}}">
 										Login
 									</a>
 								</li>

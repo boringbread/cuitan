@@ -22,6 +22,10 @@ html {
     cursor: pointer;
 }
 
+.bg-cuit {
+    background-color: var(--biru-cuit);
+}
+
 .svg {
     transition: background-color .2s;
 }
@@ -60,3 +64,14 @@ html {
     padding-bottom:100%;
     display:block;
   }
+
+  /* Hide scrollbar for Chrome, Safari and Opera */
+.rbar::-webkit-scrollbar {
+    display: none;
+  }
+  
+/* Hide scrollbar for IE, Edge and Firefox */
+.rbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}

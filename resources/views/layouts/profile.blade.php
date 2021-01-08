@@ -14,9 +14,9 @@
         <div class="" style="height:218px;background:rgb(61, 84, 102)">
             
         </div>
-        <div class="d-flex justify-content-between py-3" style="position:relative">
+        <div class="d-flex justify-content-between py-3" style="position:relative; height: 70px;">
             <div style="overflow:hidden">
-                <img style="height:111px;width:111px;position:absolute;bottom:0%;left:1em;background:#fff;object-fit:cover" src="{{asset('img/profile/'.($user->pphoto!=NULL? $user->pphoto:"noimg.png"))}}" class="profile-circle">
+                <img style="height:111px;width:111px;position:absolute;bottom:10%;left:1em;background:#fff;object-fit:cover" src="{{asset('img/profile/'.($user->pphoto!=NULL? $user->pphoto:"noimg.png"))}}" class="profile-circle">
             </div>
             
             <div class="rounded p-2" style="font-size:1.1em">
@@ -38,12 +38,12 @@
                 @elseif($role=="visit")
                 {{-- Dah polo belom? --}}
                     @if (Auth::user()->following!=NULL && in_array($user->id, Auth::user()->following))
-                    <form action="{{ route('profile.unfollow', $user->id) }}" method="POST">
+                    <form action="{{ route('profile.unfollow', $user->id) }}" method="POST" class="mb-0">
                         @csrf
                         <button class="btn btn-primary"><b>Followed</b></button>
                     </form>
                     @else
-                        <form action="{{route('profile.follow',$user->id)}}" method="POST">
+                        <form action="{{route('profile.follow',$user->id)}}" method="POST" class="mb-0">
                             @CSRF
                             <button class="btn btn-outline-primary"><b>Follow</b></button>
                         </form>

@@ -1,4 +1,4 @@
-<div class="container-fluid border-left" style="position: sticky; top: 0rem; height: 100vh;">
+<div class="container-fluid border-left rbar" style="position: sticky; top: 0rem; height: 100vh;overflow-y:scroll">
     @include('component.developer')
 
     <div class="pb-2">

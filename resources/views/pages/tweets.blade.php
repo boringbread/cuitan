@@ -9,7 +9,17 @@
     </div>
 
     @if($tweet->reply_anc)
-        @include('component.single-tweet',['tweet' => $tweet->anc])
+        @if ($tweet->anc_exist == TRUE)
+            @include('component.single-tweet',['tweet' => $tweet->anc])
+        @else
+            <div class="rounded bg-cuit p-3">
+                <h6 class="mb-0">Cuitan ini sudah dihapus oleh penggunanya. Sabar ya. 
+                    <a href="https://help.twitter.com/en/using-twitter/missing-tweets">
+                        Pelajari lebih lanjut.    
+                    </a>
+                </h6>
+            </div>
+        @endif
     @endif
 
     <div class="rounded border mt-2 tweetobj" id="{{$tweet->id}}">
@@ -65,7 +75,17 @@
 
     @if($tweet->reply_prede)
     @foreach($tweet->prede as $prede)
-        @include('component.single-tweet',['tweet' => $prede])
+        @if ($prede->prede_exist == TRUE && $prede->disp_name != "no user")
+            @include('component.single-tweet',['tweet' => $prede])
+        @else
+            <div class="rounded bg-cuit p-3 mt-2">
+                <h6 class="mb-0">Cuitan ini sudah dihapus oleh penggunanya. Sabar ya. 
+                    <a href="https://help.twitter.com/en/using-twitter/missing-tweets">
+                        Pelajari lebih lanjut.    
+                    </a>
+                </h6>
+            </div>
+        @endif
     @endforeach
     @endif
 
