@@ -50,7 +50,7 @@
                     <h6>Gabung cuitan hari ini.</h6>
                 </div>
                 <div class="col-8 my-2">
-                    <button type="button" class="btn btn-primary rounded-pill mb-2 w-100" data-toggle="modal" data-target="#exampleModalCenter">Daftar</button>
+                    <a href="{{route('register')}}" class="btn btn-primary rounded-pill mb-2 w-100" >Daftar</a>
                 </div>
                 
             </div>
