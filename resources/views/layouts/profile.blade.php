@@ -38,7 +38,10 @@
                 @elseif($role=="visit")
                 {{-- Dah polo belom? --}}
                     @if (Auth::user()->following!=NULL && in_array($user->id, Auth::user()->following))
+                    <form action="{{ route('profile.unfollow', $user->id) }}" method="POST">
+                        @csrf
                         <button class="btn btn-primary"><b>Followed</b></button>
+                    </form>
                     @else
                         <form action="{{route('profile.follow',$user->id)}}" method="POST">
                             @CSRF

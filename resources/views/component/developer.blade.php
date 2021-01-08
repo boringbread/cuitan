@@ -5,22 +5,24 @@
 <div class="accordion mt-4" id="accordionExample">
     <div class="card">
         <div class="card-header svg" id="headingOne">
-            <h2 class="mb-0">
+            <h2 class="mb-0 d-flex">
+                <img src="{{asset('img/profile/dion.jpg')}}" class="" width="50px" alt="" style=" clip-path: circle();">
                 <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#teamOne" aria-expanded="true" aria-controls="collapseOne">
-                    Dionisius Salvavictori Wanggur
+                    Dionisius Salvavictori W.
                 </button>
             </h2>
         </div>
   
         <div id="teamOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
             <div class="card-body">
-                2017730005 - Asli Orang NTT
+                2017730005 - Raja Tinder
             </div>
         </div>
     </div>
     <div class="card">
         <div class="card-header svg" id="headingTwo">
-            <h2 class="mb-0">
+            <h2 class="mb-0 d-flex">
+                <img src="{{asset('img/profile/yohan.jpeg')}}" class="" width="50px" alt="" style=" clip-path: circle();">
                 <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#teamTwo" aria-expanded="false" aria-controls="collapseTwo">
                     Yohan Kurnia Wijaya
                 </button>
@@ -34,7 +36,8 @@
     </div>
     <div class="card">
         <div class="card-header svg" id="headingThree">
-            <h2 class="mb-0">
+            <h2 class="mb-0 d-flex">
+                <img src="{{asset('img/profile/ulis.jpg')}}" class="" width="50px" alt="" style=" clip-path: circle();">
                 <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#teamThree" aria-expanded="false" aria-controls="collapseThree">
                     Yulius Famas
                 </button>
@@ -42,13 +45,14 @@
         </div>
         <div id="teamThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
             <div class="card-body">
-                2017730070 - Rumahnya jauh banget, di Sorong.
+                2017730070 - Anak Militer UNPAR
             </div>
         </div>
     </div>
     <div class="card">
         <div class="card-header svg" id="headingThree">
-            <h2 class="mb-0">
+            <h2 class="mb-0 d-flex">
+                <img src="{{asset('img/profile/as.jpg')}}" class="" width="50px" alt="" style=" clip-path: circle();">
                 <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#teamFour" aria-expanded="false" aria-controls="collapseThree">
                     Muhammad Prasasta
                 </button>

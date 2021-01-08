@@ -49,7 +49,8 @@ class TweetController extends Controller
             foreach($tweet->reply_prede as $prede){
                 $predeTweets = Tweets::where('_id',$prede)->first();
                 if($predeTweets){
-                    $user_prede = User::where('_id',$tweet->id_user)->first();
+                    $user_prede = User::where('_id',$predeTweets->id_user)->first();
+                    // dd($predeTweets);
                     $predeTweets->disp_name = $user_prede->disp_name;
                     $predeTweets->username = $user_prede->username;
                     $predeTweets->pphoto = $user_prede->pphoto;

@@ -1,6 +1,6 @@
 <div class="rounded border mt-2 tweetobj" id="{{$tweet->id}}">
     <a href="{{route('tweet.view',$tweet->id)}}" class="text-decoration-none">
-    <div class="row pt-3 cuit cur-pointer border-bottom" onClick="redirectCuit()">
+    <div class="row pt-3 cuit cur-pointer border-bottom mx-0" onClick="redirectCuit()">
         <div class="col-1">
             <div class="rounded-circle pl-2">
                 @if ($tweet->reply_anc ||$tweet->is_retweeted == 1 || $tweet->is_liked == 1)

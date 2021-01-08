@@ -10,7 +10,7 @@
 	{{-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script> --}}
 	{{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script> --}}
 </head>
-<body class="container-fluid pr-0">
+<body class="container-fluid">
 	<!-- Side Menu -->
 	<div class="row">
 		<div class="col-3 border-right">
@@ -79,8 +79,8 @@
 				<div class="w-100" style="position: absolute; bottom: 0;">
 					<div class="border text-center px-4 pt-4 pb-4 shadow svg" style="border-top-right-radius: 30px; border-top-left-radius: 30px;" >
 						<div class="d-flex flex-row align-items-center">
-							<div class="rounded-circle" style="overflow: hidden;">
-								<img src="{{asset('img/profile/'.(Auth::user()->pphoto!=NULL? Auth::user()->pphoto:"noimg.png"))}}" class="" width="50px" alt="" style="width: 60px; clip-path: circle();">
+							<div class="rounded-circle pl-2">
+								<img src="{{asset('img/profile/'.(Auth::user()->pphoto!=NULL? Auth::user()->pphoto:"noimg.png"))}}" class="" alt="" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover; object-position: center;">
 							</div>
 							<div class="d-flex flex-column text-left pl-3">
 								<div class="font-weight-bold">{{Auth::user()->disp_name}}</div>
@@ -95,7 +95,7 @@
 
 		<!-- TWEETS -->
 		<div class="col-6">
-			{{-- YOUR TWEETS --}}
+			<!-- YOUR TWEETS -->
 			@yield('your-tweets')
 
 			<!-- POSTED TWEETS -->
@@ -106,9 +106,10 @@
 			</div>
 		</div>
 
-		<div class="col-md border-left">
+		<div class="col-md">
 			@include('component.right-bar')
 		</div>
+		
 	</div>
 </body>
 @yield('scripts')

@@ -1,4 +1,4 @@
-    <button class="btn px-2 py-2 svg rounded-circle"data-toggle="modal" data-target="#replyModal">
+    <button class="btn px-2 py-2 svg rounded-circle" data-toggle="modal" data-target="#replyModal">
         <div>
             <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
             width="15px" height="15px" viewBox="0 0 511.63 511.631" style="enable-background:new 0 0 511.63 511.631;"

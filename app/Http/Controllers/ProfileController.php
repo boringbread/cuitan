@@ -19,7 +19,6 @@ class ProfileController extends Controller
         //cari user berdasarkan username
         $user = User::where('username',$username)->first();
 
-        
         if(!$user){return redirect(route('index'));}
         
         $tweets = Tweets::where('id_user',$user->id)->orderBy('created_at', 'desc')->get();
@@ -32,12 +31,13 @@ class ProfileController extends Controller
         if(!$user){return redirect(route('index'));}
 
         //ambil tweet milik user tersebut
-        $tweets = Tweets::where('id_user',$user->id)->get();
+        $tweets = Tweets::where('id_user',$user->id)->orderby('created_at', 'desc')->get();
 
         //lengkapi data yang diperlukan tweet
         foreach($tweets as $tweet){
             $tweet->disp_name = $user->disp_name;
             $tweet->username = $user->username;
+            $tweet->pphoto = $user->pphoto;
         }
 
         //role pada lihat profile
@@ -68,7 +68,7 @@ class ProfileController extends Controller
     
     /*
         Follow user tertentu berdasarkan id
-        url:   /profile/{id}
+        url:   /profile/{id}/follow
         contoh penggunaan dynamic route: href="{{route('profile.follow',$id)}}"
     */
     public function followProfile($id){
@@ -95,10 +95,37 @@ class ProfileController extends Controller
 
     /*
         Unfollow user tertentu berdasarkan id
-        url:   /profile/unfollow/{id}
+        url:   /profile/{id}/unfollow
         contoh penggunaan dynamic route: href="{{route('profile.unfollow',$id)}}"
     */
     public function unfollowProfile($id){
+        #Todo: - tambahkan ::middleware pada route
+        $user = Auth::user();
+
+        //cari profile user yang ingin di unfollow
+        $toUnfollow = User::where('_id',$id)->first();
+
+        //batalkan unfollow jika tidak ditemukan profile user
+        if(!$toUnfollow){return redirect()->back();}
+
+        //hapus id user yang ingin diunfollow pada array following diri sendiri (login)
+        $user->pull('following', $id, true);
+        $user->save();
+        
+        //hapus id user diri sendiri pada array follower user yang ingin diunfollow
+        $toUnfollow->pull('followers',$user->id, true);
+        $toUnfollow->save();
+
+        //kembalikan user ke halaman profil
+        return redirect( route('profile.view', $toUnfollow->username) );
+    }
+
+    /*
+        Unfollow user tertentu berdasarkan id
+        url:   /profile/unfollow/{id}
+        contoh penggunaan dynamic route: href="{{route('profile.unfollow',$id)}}"
+    */
+    // public function unfollowProfile($id){
         /* 
             INI GW MASI ASAL COPAS DOANG WKWKWK
             BELOM ADA DI ROUTE, VIEW
@@ -121,7 +148,7 @@ class ProfileController extends Controller
         // //tambahkan id user diri sendiri pada array follower user yang ingin difollow
         // $toUnfollow->pull('followers',$user->id, true);
         // $toUnfollow->save();
-    }
+    // }
 
     public function updateProfile(Request $request){
         $user = Auth::user();
