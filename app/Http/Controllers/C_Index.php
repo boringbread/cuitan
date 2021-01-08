@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Tweets;
 use App\User;
@@ -27,5 +28,23 @@ class C_Index extends Controller
 
     public function showTweets() {
     	return view('pages.tweets');
+    }
+
+    public static function getWTF(){
+        // cache()->forget('whotofollow');
+        // exit();
+
+        $whoToFollow = cache()->remember('whotofollow', 60*60, function(){
+            $user = Auth::user();
+            $users = User::where('_id', "!=", $user->id)->whereNotIn('_id', $user->following)->orderby('created_at', 'desc')->take(3)->get();
+            return $users;
+        });
+
+        // dd($whoToFollow);
+    }
+
+    public static function refreshWTF(){
+        cache()->forget('whotofollow');
+        C_Index::getWTF();
     }
 }

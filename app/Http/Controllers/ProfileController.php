@@ -89,6 +89,8 @@ class ProfileController extends Controller
         $toFollow->push('followers',$user->id, true);
         $toFollow->save();
 
+        app('App\Http\Controllers\C_Index')->refreshWTF();
+
         //kembalikan user ke halaman profil
         return redirect( route('profile.view', $toFollow->username) );
     }
@@ -187,9 +189,13 @@ class ProfileController extends Controller
         if($user->following != NULL){
             foreach ($user->following as $item) {
                 $follower = User::where('_id', $item)->first();
-                $follower->count_following = $this->countFollowing($follower->username);
-                $follower->count_follower = $this->countFollower($follower->username);
-                array_push($following, $follower);
+                if($follower){
+                    $follower->count_following = $this->countFollowing($follower->username);
+                    $follower->count_follower = $this->countFollower($follower->username);
+                    array_push($following, $follower);
+                } else {
+                    $user->pull('following', $item);
+                }
             }
         }
         
@@ -203,9 +209,13 @@ class ProfileController extends Controller
         if($user->followers != NULL){
             foreach ($user->followers as $item) {
                 $following = User::where('_id', $item)->first();
-                $following->count_following = $this->countFollowing($following->username);
-                $following->count_follower = $this->countFollower($following->username);
-                array_push($follower, $following);
+                if($following){
+                    $following->count_following = $this->countFollowing($following->username);
+                    $following->count_follower = $this->countFollower($following->username);
+                    array_push($follower, $following);
+                } else {
+                    $user->pull('followers', $item);
+                }
             }    
         }
 
