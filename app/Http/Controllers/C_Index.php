@@ -36,9 +36,10 @@ class C_Index extends Controller
     }
 
     public static function getWTF(){
-        $user = Auth::user();
-        if($user->following){
+            $user = Auth::user();
+            if($user->following){
             $whoToFollow = cache()->remember('whotofollow', 60*60, function(){
+                $user = Auth::user();
                 $users = User::where('_id', "!=", $user->id)->whereNotIn('_id', $user->following)->orderby('created_at', 'desc')->take(3)->get();
                 return $users;
             });
