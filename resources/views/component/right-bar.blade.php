@@ -1,7 +1,7 @@
 <div class="container-fluid border-left rbar" style="position: sticky; top: 0rem; height: 100vh;overflow-y:scroll">
     @include('component.developer')
 
-    @if(Auth::check())
+    @if(Auth::check() && Cache::get('whotofollow') && count(Cache::get('whotofollow'))>0)
     <div class="pb-2">
         <div class="pt-3 mt-3 pb-2 border-bottom border-top">
             <h5 class="">Who to Follow</h5>   

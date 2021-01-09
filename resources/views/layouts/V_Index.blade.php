@@ -78,6 +78,7 @@
 				</nav>
 
 				@if (Auth::check())
+				<a href="{{route('profile.view',Auth::user()->username)}}" class="text-dark">
 				<div class="w-100" style="position: absolute; bottom: 0;">
 					<div class="border text-center px-4 pt-4 pb-4 shadow svg" style="border-top-right-radius: 30px; border-top-left-radius: 30px;" >
 						<div class="d-flex flex-row align-items-center">
@@ -86,11 +87,12 @@
 							</div>
 							<div class="d-flex flex-column text-left pl-3">
 								<div class="font-weight-bold">{{Auth::user()->disp_name}}</div>
-								<div class="font-weight-light"><a href="{{route('profile.view',Auth::user()->username)}}" class="text-dark">{{"@".Auth::user()->username}}</a></div>
+								<div class="font-weight-light">{{"@".Auth::user()->username}}</div>
 							</div>
 						</div>
 					</div>
 				</div>
+				</a>
 				@endif
 			</div>
 		</div>

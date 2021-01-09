@@ -40,3 +40,4 @@ Route::post('/tweet/reply','TweetController@replyTweet')->name('tweet.reply');
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/wtf', 'C_Index@getWTF')->name('wtf');
+Route::get('/resetWTF', 'C_Index@loginRefreshWTF')->name('refresh');
