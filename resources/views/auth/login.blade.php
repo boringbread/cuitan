@@ -5,22 +5,22 @@
 <div class="container-fluid ">
 
     <div class="row text-center text-light " style="height: 100vh">
-        <div class="col-6 bg-primary py-4">
+        <div class="col-6 bg-primary py-4 d-flex align-items-center">
             <div class="row p-4 d-flex justify-content-center">
                 <div class="col-8 my-2 p-3 text-left">
-                    <p><i class="fa fa-search" style="font-size: 24px" ></i>  Ikuti yang kamu sukai</p>     
+                    <p><i class="fa fa-search" style="font-size: 24px" ></i> &emsp;Ikuti yang kamu sukai</p>     
                 </div>
                 <div class="col-8 my-2 p-3 text-left">
-                    <p><i class="fas fa-user-friends" style="font-size: 24px"></i> Dengar apa yang sedang jadi perbincangan.</p>    
+                    <p><i class="fas fa-user-friends" style="font-size: 24px"></i>&emsp;Dengar apa yang sedang jadi perbincangan.</p>    
                 </div>
                 <div class="col-8 my-2 p-3 text-left">
-                    <p><i class="fa fa-comment-alt" style="font-size: 24px"></i>  Gabung ke perbincangan.</p>
+                    <p><i class="fa fa-comment-alt" style="font-size: 24px"></i>&emsp;Gabung ke perbincangan.</p>
                 </div>      
             </div>
         </div>
 
         <div class="col-6 bg-dark">
-            <div class="row p-4 d-flex">
+            <div class="row p-4">
                 <div class="col-12 ">
                     <form action="{{ route('login') }}" method="POST">
                         @csrf
@@ -39,7 +39,7 @@
                 </div>
             </div>
 
-            <div class="row p-4 d-flex justify-content-center">
+            <div class="row p-4 d-flex justify-content-center mt-5">
                 <div class="col-8 my-2 text-left">
                     <i class="fab fa-twitter" style="font-size: 48px"></i>
                 </div>

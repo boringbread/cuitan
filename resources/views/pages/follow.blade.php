@@ -18,7 +18,7 @@
         <div class="row border rounded m-2 text-italic svg">
             <div class="col-2">
                 <div class="rounded-circle pl-2 py-3">
-                    <img src="{{asset('img/profile/'.($item->pphoto!=NULL? $item->pphoto:"noimg.png"))}}" class="" alt="" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; object-position: center right;">
+                    <img src="{{asset('img/profile/'.($item->pphoto!=NULL? $item->pphoto:"noimg.png"))}}" class="" alt="" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; object-position: center;">
                 </div>
             </div>
             <div class="d-flex flex-row justify-content-between align-items-center col">
