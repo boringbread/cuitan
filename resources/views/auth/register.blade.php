@@ -1,27 +1,24 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container-fluid bg-dark">
-    <div class="row justify-content-center" style="height: 100vh">
+<div class="container-fluid ">
+    <div class="row justify-content-center">
         <div class="col-md-8 text-primary">
-                <div class="card-body d text-center">
-                   
-                    <form method="POST" action="{{ route('register') }}" class="col-12 my-2">
+            <div class="card-body d text-center w-75 px-5 py-0" style="margin:0 auto">
+                <div class="">
+                    <form method="POST" action="{{ route('register') }}" class="col-12 my-3">
                         @csrf
-
-                        <div class="form-group row d-flex justify-content-center text-white">
-
+                        <div class="form-group row d-flex justify-content-center">
                             <div class="col-8">
                                 <i class="fab fa-twitter" style="font-size: 48px"></i>
-                                <h2>Daftar ke Cuitan</h2>
+                                <h3>Daftar ke Cuitan</h3>
                             </div>
                         </div>
 
                         <div class="form-group row text-left d-flex justify-content-center">
-
-                            <div class="col-8 border border-primary rounded ">
-                                <label for="username" style="margin: 0">Username</label>
-                                <input id="username" name="username" style="border: 0;outline: none ;box-shadow: none" type="text" class="mb-1 text-white form-control @error('username') is-invalid @enderror bg-dark" name="username" value="{{ old('username') }}" required autocomplete="name" autofocus>
+                            <div class="col-8 border border-primary rounded px-1 ">
+                                <small for="username" style="margin: 0">Username</small>
+                                <input id="username" name="username" style="border: 0;outline: none ;box-shadow: none" type="text" class="  form-control p-0 @error('username') is-invalid @enderror " name="username" value="{{ old('username') }}" required autocomplete="name" autofocus>
                                 @error('username')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -31,18 +28,16 @@
                         </div>
 
                         <div class="form-group row text-left d-flex justify-content-center">
-
-                            <div class="col-8 border border-primary rounded">
-                                <label for="nama" style="margin: 0">Display Name</label>
-                                <input id="disp_name"type="text" style="border: 0;outline: none ;box-shadow: none" class="mb-1 text-white bg-dark form-control @error('name') is-invalid @enderror" name="disp_name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                            <div class="col-8 border border-primary rounded px-1">
+                                <small for="nama" style="margin: 0">Display Name</small>
+                                <input id="disp_name"type="text" style="border: 0;outline: none ;box-shadow: none" class="   form-control p-0 @error('name') is-invalid @enderror" name="disp_name" value="{{ old('name') }}" required autocomplete="name" autofocus>
                             </div>
                         </div>
 
                         <div class="form-group row text-left d-flex justify-content-center">
-
-                            <div class="col-8 border border-primary rounded">
-                                <label for="nama" style="margin: 0">Email</label>
-                                <input id="email" type="email" style="border: 0;outline: none ;box-shadow: none ;" class="mb-1 text-white bg-dark form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                            <div class="col-8 border border-primary rounded px-1">
+                                <small for="nama" style="margin: 0">Email</small>
+                                <input id="email" type="email" style="border: 0;outline: none ;box-shadow: none ;" class="   form-control p-0 @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -52,10 +47,9 @@
                         </div>
 
                         <div class="form-group row text-left d-flex justify-content-center">
-
-                            <div class="col-8 border border-primary rounded">
-                                <label for="nama" style="margin: 0">Password</label>
-                                <input id="password" type="password" style="border: 0;outline: none ;box-shadow: none;" class="mb-1 text-white bg-dark form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                            <div class="col-8 border border-primary rounded px-1">
+                                <small for="nama" style="margin: 0">Password</small>
+                                <input id="password" type="password" style="border: 0;outline: none ;box-shadow: none;" class="   form-control p-0 @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -65,25 +59,23 @@
                         </div>
 
                         <div class="form-group row text-left d-flex justify-content-center">
-
-                            <div class="col-8 border border-primary rounded">
-                                <label for="nama" style="margin: 0">Confirm Password</label>
-                                <input id="password-confirm" style="border: 0;outline: none ;box-shadow: none ;" type="password" class="mb-1 text-white bg-dark form-control" name="password_confirmation" required autocomplete="new-password">
+                            <div class="col-8 border border-primary rounded px-1">
+                                <small for="nama" style="margin: 0">Confirm Password</small>
+                                <input id="password-confirm" style="border: 0;outline: none ;box-shadow: none ;" type="password" class="   form-control p-0" name="password_confirmation" required autocomplete="new-password">
                             </div>
                         </div>
 
                         <div class="form-group row mb-0 d-flex justify-content-center">
                             <div class="col-8">
-                                <button type="submit" class="btn btn-primary rounded-pill w-100">
+                                <button type="submit" class="btn btn-primary rounded-pill w-100 mb-2">
                                     {{ __('Daftar') }}
                                 </button>
-                                <button type="submit" class="btn btn-success rounded-pill w-100 mt-1">
-                                    {{ __('Kembali') }}
-                                </button>
+                                <a href="{{route('login')}}">&larr; Kembali</a>
                             </div>
                         </div>
                     </form>
                 </div>
+            </div>
         </div>
     </div>
 </div>

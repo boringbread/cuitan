@@ -14,6 +14,10 @@ html {
     box-shadow: none !important; /* You may want to include this as bootstrap applies these styles too */
 }
 
+.normal-link:hover{
+    text-decoration: none;
+}
+
 .bg-blue-cuit-10 {
     background-color: #007bff08 ;
 }
