@@ -12,8 +12,8 @@
             @endif
             
             @foreach (Cache::get('whotofollow') as $item)
-                <div class="mt-4 d-flex border rounded px-2 py-3 svg">
-                    <a href="{{ route('profile.view', $item->username) }}" class="d-flex">
+            <a href="{{ route('profile.view', $item->username) }}" class="d-flex">
+                <div class="w-100 mt-4 d-flex border rounded px-2 py-3 svg">
                         <div class="ml-1">
                             <img src="{{asset('img/profile/'.($item->pphoto!=NULL? $item->pphoto:"noimg.png"))}}" class="" width="50px" alt="" style=" clip-path: circle();">
                         </div>
@@ -21,8 +21,8 @@
                             <h6>{{ $item->disp_name }}</h6>
                             <h6 class="text-muted">{{ $item->username }}</h6>
                         </div>
-                    </a>
-                </div>
+                    </div>
+                </a>
             @endforeach
         </div>
         @endif

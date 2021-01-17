@@ -39,7 +39,6 @@
 										<div class="pb-1">
 											<form action="{{route('profile.search')}}" method="POST" >
 												<div class="d-flex justify-content-around">
-													<input type="hidden" name="_method" value="PUT">
 													@csrf
 													<input type="text" class="form-control mt-2 w-75" name="search" id="search" required>
 													<button class="mt-2 btn btn-danger" type="submit">Cari</button>
